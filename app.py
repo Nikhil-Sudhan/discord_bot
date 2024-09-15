@@ -110,7 +110,7 @@ def run_flask():
 
 # Function to run Discord bot
 def run_discord():
-    TOKEN = 'MTI4NDU3NDk2NDYyODA2MjIzOA.GtXKoi.vQX5-CephCidS6v4KDKvthiG3wcS14aSoqAcqg'  # Replace with your bot's token
+    TOKEN = 'MTI4NDU3NDk2NDYyODA2MjIzOA.G52RLi.yYqqQeRPfxV1-RuAWGsVNFKW199kiLJ9190ECg'  # Replace with your bot's token
     client.run(TOKEN)
 
 # Run both Flask and Discord in parallel
