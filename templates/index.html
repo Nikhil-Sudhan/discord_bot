@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .code-box {
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+        .copy-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .copy-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Code</h1>
+        <form action="/generate" method="POST">
+            <input type="submit" value="Generate Code">
+        </form>
+
+        {% if code %}
+        <div class="code-container">
+            <div class="code-box" id="generatedCode">{{ code }}</div>
+            <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+        </div>
+        <script>
+            function copyToClipboard() {
+                // Get the generated code
+                var code = document.getElementById("generatedCode").innerText;
+
+                // Create a temporary input element
+                var tempInput = document.createElement("input");
+                tempInput.style.position = "absolute";
+                tempInput.style.left = "-1000px";
+                tempInput.value = code;
+                
+                // Append the temporary input to the body
+                document.body.appendChild(tempInput);
+
+                // Select and copy the code
+                tempInput.select();
+                document.execCommand("copy");
+
+                // Remove the temporary input element
+                document.body.removeChild(tempInput);
+
+                // Alert the user that the code has been copied
+                alert("Code copied to clipboard!");
+            }
+        </script>
+        {% endif %}
+    </div>
+</body>
+</html>
