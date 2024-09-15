@@ -1,6 +1,3 @@
 discord.py>=2.0.0
 logging
 flask
-random
-string
-gunicorn
