@@ -74,5 +74,5 @@ async def on_message(message):
             await message.channel.send("Invalid or already used key!")
 
 # Run the bot
-TOKEN = 'MTI4NDU3NDk2NDYyODA2MjIzOA.GtXKoi.vQX5-CephCidS6v4KDKvthiG3wcS14aSoqAcqg'  # Replace with your bot's token
+TOKEN = 'TOKEN'  # Replace with your bot's token
 client.run(TOKEN)
