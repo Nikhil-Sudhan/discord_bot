@@ -1,2 +1,1 @@
-web: gunicorn app:app
-bot: python discord_bot.py
+web: python app.py
